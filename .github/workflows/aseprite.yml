@@ -43,8 +43,11 @@ jobs:
             libxext-dev libpng-dev libjpeg-dev libtiff-dev libwebp-dev \
             libfreetype6-dev libcurl4-openssl-dev
 
+      - name: List files for debug
+        run: ls -l ${{ github.workspace }}
       - name: Build
         id: build
+        working-directory: ${{ github.workspace }}
         run: |
           chmod +x ./build.sh
           ./build.sh
